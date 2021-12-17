@@ -7,7 +7,8 @@
     </code>
 </p>
 
-<p>
+</p>
+<pre>
  * CINE ONLINE.
  * 
  * Un cine online permite almacenar las películas de estreno y las opciones de M críticos de cine
@@ -47,4 +48,5 @@
  * nombre de la película, y en la siguiente línea la puntuación media.
  * 
  */
+</pre>
 </p>
