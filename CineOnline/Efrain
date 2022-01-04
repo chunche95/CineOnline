@@ -3,7 +3,7 @@ package Entradadedatos;
 import java.lang.annotation.AnnotationTypeMismatchException;
 import java.util.Scanner;
 
-public class Usuarios {
+public class Efrain {
 
 	public static void main(String[] args) {
 		//Declaración del objeto que nos permite la entrada de datos.

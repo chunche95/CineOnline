@@ -39,7 +39,6 @@
  * 
  */
 package humancomputing.net.cineonline;
-
 /**
  * @version 0.1
  * @author Paulino Esteban Bermúdez R.
@@ -48,6 +47,8 @@ public class CineOnline {
     public static void main(String[] args) {
         System.out.println("Bienvenido al CINE ONLINE.");
         // Métodos del cine.
-    }
-    
+        Administradores.criticos();
+        Administradores.peliculas();
+        Usuarios.menu();
+    }   
 }
