@@ -117,8 +117,7 @@ public class Administradores {
 			 * que desee agregar una pelicula 
 			 */
 			System.out.println("¿Quiere agregar otra pelicula?(s/n)");
-			maspelis=leer.nextLine().equals("s"); 
-                        maspelis=leer.nextLine().equals("S");
+			maspelis=leer.nextLine().equals("s");                        
 			
 		}//do
 			while (maspelis);
@@ -144,7 +143,7 @@ public class Administradores {
 				//creamos un fichero para cada critico que se va agregando
 				File CadaCritico = new File (Critico);
 				salidaC.println(CadaCritico);
-				System.out.println("¿Quiere agregar otro critico?");
+				System.out.println("¿Quiere agregar otro critico? (s/n) \n");
 				mascriticos=leer.nextLine().equals("s");	
 			}
 			while (mascriticos);

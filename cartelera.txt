@@ -1,4 +1,6 @@
 Nombre de las peliculas en la cartelera
 
-Los croods
-Cine Online
+Pelicula1
+Pelicula2
+Pelicula3
+Pelicula4

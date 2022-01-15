@@ -33,7 +33,7 @@ public class AltasCriticos {
 		Scanner sc = new Scanner(System.in);
 		boolean existeCritico = false;
 		do {
-			System.out.print("Cual es el crítico?");
+			System.out.print("Cual es el crï¿½tico?");
 			String nombre = sc.nextLine();
 			
 			// 2 Buscar el critico en la lista
@@ -41,7 +41,7 @@ public class AltasCriticos {
 			if (existeCritico) {
 				puntuarPeliculas(nombre);
 			} else {
-				System.out.println("El crítico no está dado de alta");
+				System.out.println("El crï¿½tico no estï¿½ dado de alta");
 			}
 			
 		} while(!existeCritico);
@@ -52,24 +52,47 @@ public class AltasCriticos {
 		// crear fichero critico  nombre.txt		
 		File critico = new File(nombre + ".txt");
 		FileWriter fw = new FileWriter(critico);
+		PrintWriter salida;
 		
 		// Leer fichero de peliculas
+		File pelicula= new File("cartelera.txt");
+		FileWriter p=new FileWriter(pelicula);
+		
+		Scanner lector=new Scanner(pelicula);
+		Scanner nota;
 		// Para cada pelicula, pedir puntuacion al usuario
+		while(lector.hasNext());{
+			System.out.println(lector.next());
+			System.out.println("ï¿½Nota de la Pelicula?");
+			nota=new Scanner(System.in);
+			int notaN;
+			notaN=nota.nextInt();
+			
+			if((notaN>0)||(notaN<=5)) {
+				salida.print(notaN);
+			}
+			else {
+				System.out.println("La nota no es valida");
+			}
+			
+			
+		}
+		
 		// Escribir en el fichero del critico, la linea con pelicula + puntuacion
 		
 		int valor=GenerarNumero();
+		while(lector.hasNext()) {
+			String nombrePelicula=lector.next();
+			int puntuacionPelicula=lector.nextInt();
+			
 		
 			
 		}
 		
-	public static int GenerarNumero() {
-		int numero;
-		numero=(int)(Math.random()*5-1);
-		return numero;
-	}
-		
-		
-		
-	}
 	
+	
+		
+		
+		
+	}
 }
