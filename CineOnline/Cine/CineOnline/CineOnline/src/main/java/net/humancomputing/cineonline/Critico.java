@@ -105,7 +105,13 @@ public class Critico {
             System.out.println("+--------------------------------------+");
             System.out.println(e);
             System.out.println("+--------------------------------------+");
-        } // Cierre del try-catch
+        } finally {
+            System.out.println("Gracias " + you + "!");
+            System.out.println("Ha terminado el programa de evaluación de peliculas.");
+            // Volvemos al menu del principio.
+            menu();
+            
+        }// Cierre del try-catch-finally
     } // Cierre del metodo puntuarPeliculas
     public static void puntuarP(String yourName) throws FileNotFoundException {
         /**
@@ -155,6 +161,6 @@ public class Critico {
             System.out.println(e);
             System.out.println("+--------------------------------------+");
         } // Cierre del try-catch
-    }
+    } // Cierre del metodo puntuarP
 } // Cierre de la clase Critico
 
