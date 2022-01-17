@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- *@version 0.1
+ * @version 0.1
  * @author Paulino Esteban Bermudez R.
  */
 public class Administrador {
@@ -34,7 +34,7 @@ public class Administrador {
         System.out.println(" 1) Dar de alta peliculas en el cine.");
         System.out.println(" 2) Dar de alta criticos en el cine.");
         System.out.println("------------------------------------");
-        System.out.println("| 3) Volver al menu principal.      |");
+        System.out.println("| 0) Volver al menu principal.      |");
         System.out.println("------------------------------------");
         System.out.println("Introduzca el numero de la opcion.");        
         // Guardamos la opcion seleccionada.     
@@ -51,7 +51,7 @@ public class Administrador {
                 // Dirigimos a dar de alta nuevos criticos en el cine.
                 altaCriticos();
                 break;
-            case 3:
+            case 0:
                 // Volvemos al menu principal del programa.
                 
                 /** ***********************************************************
@@ -61,7 +61,7 @@ public class Administrador {
                 break;
             default:
                 System.out.println("Error en la opción que ha escrito, vuelva a intentarlo de nuevo.");
-                // Volvemos a mostrar el menu de
+                // Volvemos a mostrar el menu de Administrador
                 menu();
         } // Cierre del switch
     } // Cierre del metodo menu()
@@ -169,5 +169,5 @@ public class Administrador {
         } while (!masCriticos);
         // Terminamos la ficha de criticos de peliculas del cine
         Boli.close();        
-    }
+    } // Cierre del metodo AltaCriticos
 } // Class Administrador
