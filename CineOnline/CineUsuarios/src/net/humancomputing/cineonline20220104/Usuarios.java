@@ -1,4 +1,10 @@
-package net.humancomputing.cineonline20220104;
+package trabajo;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.annotation.AnnotationTypeMismatchException;
 import java.util.Scanner;
 /** 
@@ -44,56 +50,136 @@ import java.util.Scanner;
  * @author pauli
  *
  */
-public class Usuarios {
-	public static void main(String[] args) {
-		//Declaración del objeto que nos permite la entrada de datos.
-		Scanner leer = new Scanner(System.in);
-		//Menu de opciones
-		boolean salir = false;
-		int opcion;
-		
-		while (! salir) {
-			System.out.println("\t\t Menú principal - USUARIOS.");
-			System.out.println("");
-			System.out.println("Seleccione una de las siguientes opciones:\n");
-			System.out.println("\t 1. Mostrar peliculas con menor media ");
-			System.out.println("\t 2. Mostrar peliculas con mayor media ");
-			System.out.println("\t 3. Mostrar el critico que menor puntuacion media ha dado a todas las peliculas(Si hay varias mostrar solo una de ellas)");
-			System.out.println("\t 4. Mostrar peliculas con +3 de media ");
-			System.out.println("");
-			System.out.println("\t 0. Salir del programa");
-			try {
-				//Solicitamos que el usuario escoga una opcion y lo recibimos desde el teclado para guardarlo en la variable correspondiente
-				System.out.println("\n Introduce un numero: ");
-				opcion = leer.nextInt();
-				
-				switch (opcion) {					
+
+public class usuarios {
+	
+
+
+		public static void main(String[] args) throws IOException {
+			//Declaración del objeto que nos permite la entrada de datos.
+			Scanner leer = new Scanner(System.in);
+			//Menu de opciones
+			boolean salir = false;
+			int opcion;
+			
+			while (! salir) {
+				System.out.println("Bienvenido\n ¿que deseas hacer?");
+				System.out.println(" 1. Mostrar peliculas con menor media ");
+				System.out.println(" 2. Mostrar peliculas con mayor media ");
+				System.out.println(" 3. Mostrar el critico que menor puntuacion media ha dado a todas las peliculas");
+				System.out.println(" 4. Mostrar peliculas con +3 de media ");
+				try {
+					//Solicitamos que el usuario escoga una opcion y lo recibimos desde el teclado para guardarlo en la variable correspondiente
+					System.out.println(" Introduce un numero de la opcion que desea realizar: ");
+					opcion = leer.nextInt();
+					
+					switch (opcion) {
+					
 					case 1:
 						System.out.println(" Esta es la opcion mostrar peliculas con menor media ");
-						break;					
+						String peliMe= peliculasmenormedia ();
+						break;
+						
 					case 2:
 		            	System.out.println(" Esta es la opcion mostrar peliculas con mayor media ");
-						break;					
+						String peliMa=peliculasmayormedia ();
+		            	break;
+						
 		            case 3:
-		            	System.out.println(" Esta es la opcion Mostrar el critico que menor puntuacion media ha dado a todas las peliculas(Si hay varias mostrar solo una de ellas) ");
-						break;					
+		            	System.out.println(" Esta es la opcion Mostrar el critico que menor puntuacion media ha dado a todas las peliculas");
+						String Criticome =Criticomenor ();
+		            	break;
+						
 		            case 4:
 		            	System.out.println(" Esta es la opcion mostrar peliculas con +3 de media ");
-						break;					
-		            case 0:
+						String pelis = peliculas3 ();
+		            	break;
+						
+		            case 5:
 		            	salir = true;
 		 				break;
-		            default:
-		            	System.out.println(" Las opciones son entre 1 y 4 ");
-		            	System.out.println(" Pulse '0' para salir del programa.");
-	 			} //Fin del Switch
-				
-			} catch (AnnotationTypeMismatchException e ) {  //Utilizamos un try y catch para que de error si no se escibe un numero y diga que debe ingresar un numero
-				System.out.println("+_________________________________________+");
-				System.out.println("| Debes introducir un numero entre 0 y 4! |");
-				System.out.println("+_________________________________________+");
-				leer.next();
-			} //Fin del Catch			
-		}//Fin del While
-	} // Cierre del Main
-} // Cierre de la clase 
+		 				default:
+		 			System.out.println(" Las opciones son entre 1 y 5 ");
+		 				} //Fin del Switch
+					
+					} catch (AnnotationTypeMismatchException e ) {  //Utilizamos un try y catch para que de error si no se escibe un numero y diga que debe ingresar un numero
+						
+						System.out.println(" Debes introducir un numero: ");
+						leer.next();
+				} //Fin del Catch
+		          System.out.println(" Fin del menu ");
+			}//Fin del While
+		}//fin main
+		
+		public static String peliculasmenormedia () throws IOException {
+			Scanner leer= new Scanner(System.in);
+			File peliculasconmenormedia =new File ("menor.txt");
+			PrintWriter salida = new PrintWriter (new FileWriter (peliculasconmenormedia));
+			String nombre="";
+			int pelicula;
+			boolean MasAlias;
+			String alias="";
+			int puntaje;
+				do {
+					System.out.println("Introduce una pelicula de un jugador");
+					nombre=leer.next();
+					puntaje = (int)(Math.random()*6);
+					salida.println(nombre +": " +puntaje);
+					System.out.println("¿Deseas introducir peliculas? (s/n)");
+					MasAlias=leer.next().equals("s");
+					
+					
+				}//do
+				while (MasAlias);
+					salida.close();
+					leer.close();
+					
+					Scanner leerFichero = new Scanner(peliculasconmenormedia);
+					 while(leerFichero.hasNext()) {
+						String peliculas=leerFichero.nextLine();
+						int puntuacion=leerFichero.nextInt();
+						int menor[]= new int [puntuacion];
+					}//while
+					 
+		return peliculasmenormedia ();
+	}//fin peliculasmenormedia
+		
+		
+	public static String peliculasmayormedia () throws FileNotFoundException {
+		File peliculasconmayormedia =new File ("mayor.txt");
+		Scanner leerFichero = new Scanner(peliculasconmayormedia);
+		while(leerFichero.hasNext()) {
+			String peliculas=leerFichero.nextLine();
+			int puntuacion=leerFichero.nextInt();
+			
+		}//end while
+		return peliculasmayormedia ();
+	}//end eliculasmayormedia
+	
+	
+	public static String Criticomenor () throws FileNotFoundException {
+		File criticomenorpunt =new File ("critico.txt");
+		
+		Scanner leerFichero = new Scanner(criticomenorpunt);
+		while(leerFichero.hasNext()) {
+			String peliculas=leerFichero.nextLine();
+			int puntuacion=leerFichero.nextInt();
+		}
+			return Criticomenor ();
+	}//end critico menor
+	
+	public static String peliculas3 () throws FileNotFoundException {
+		File buenaspelis =new File ("peliculas+3.txt");
+		Scanner leerFichero = new Scanner(buenaspelis);
+		
+		while(leerFichero.hasNext()) {
+			String peliculas=leerFichero.nextLine();
+			int puntuacion=leerFichero.nextInt();
+			if (puntuacion>3) {
+				System.out.println(peliculas + puntuacion);
+			}
+		}
+			return peliculas3 ();
+	}//end peliculas3
+}//end class		
+
