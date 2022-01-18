@@ -111,7 +111,7 @@ public class usuarios {
 			}//Fin del While
 		}//fin main
 		
-		public static String peliculasmenormedia () throws IOException {
+				public static String peliculasmenormedia () throws IOException {
 			Scanner leer= new Scanner(System.in);
 			File peliculasconmenormedia =new File ("menor.txt");
 			PrintWriter salida = new PrintWriter (new FileWriter (peliculasconmenormedia));
@@ -121,11 +121,11 @@ public class usuarios {
 			String alias="";
 			int puntaje;
 				do {
-					System.out.println("Introduce una pelicula de un jugador");
+					System.out.println("La pelicula con menor media es: ");
 					nombre=leer.next();
 					puntaje = (int)(Math.random()*6);
 					salida.println(nombre +": " +puntaje);
-					System.out.println("¿Deseas introducir peliculas? (s/n)");
+					
 					MasAlias=leer.next().equals("s");
 					
 					
@@ -145,30 +145,68 @@ public class usuarios {
 	}//fin peliculasmenormedia
 		
 		
-	public static String peliculasmayormedia () throws FileNotFoundException {
+	public static String peliculasmayormedia () throws IOException {
+		Scanner leer= new Scanner(System.in);
 		File peliculasconmayormedia =new File ("mayor.txt");
+		PrintWriter salida = new PrintWriter (new FileWriter (peliculasconmayormedia));
+		String nombre="";
+		boolean MasAlias;
+		String alias="";
+		int puntaje;
+		do {
+			System.out.println("La pelicula con mayor media es: ");
+			nombre=leer.next();
+			puntaje = (int)(Math.random()*6);
+			salida.println(nombre +": " +puntaje);
+			
+			MasAlias=leer.next().equals("s");
+		}//do
+		while (MasAlias);
+		salida.close();
+		leer.close();
+		
 		Scanner leerFichero = new Scanner(peliculasconmayormedia);
-		while(leerFichero.hasNext()) {
+		 while(leerFichero.hasNext()) {
 			String peliculas=leerFichero.nextLine();
 			int puntuacion=leerFichero.nextInt();
-			
-		}//end while
-		return peliculasmayormedia ();
-	}//end eliculasmayormedia
+			int mayor[]= new int [puntuacion];
+		}//while
+		 
+return peliculasmayormedia ();
+}//fin peliculasmenormedia
 	
-	
-	public static String Criticomenor () throws FileNotFoundException {
+	public static String Criticomenor () throws IOException {
+		Scanner leer= new Scanner(System.in);
 		File criticomenorpunt =new File ("critico.txt");
+		PrintWriter salida = new PrintWriter (new FileWriter (criticomenorpunt));
+		String nombre="";
+		boolean MasAlias;
+		String alias="";
+		int puntaje;
+		do {
+			System.out.println("Este es el critico que menos puntuacion dio ");
+			nombre=leer.next();
+			puntaje = (int)(Math.random()*6);
+			salida.println(nombre +": " +puntaje);
+			
+			MasAlias=leer.next().equals("s");
+		}//do
+		while (MasAlias);
+		salida.close();
+		leer.close();
 		
 		Scanner leerFichero = new Scanner(criticomenorpunt);
-		while(leerFichero.hasNext()) {
+		 while(leerFichero.hasNext()) {
 			String peliculas=leerFichero.nextLine();
 			int puntuacion=leerFichero.nextInt();
-		}
-			return Criticomenor ();
+			int critico[]= new int [puntuacion];
+		}//while
+		 
+return Criticomenor();
+		
 	}//end critico menor
 	
-	public static String peliculas3 () throws FileNotFoundException {
+	public static String peliculasmas3 () throws FileNotFoundException {
 		File buenaspelis =new File ("peliculas+3.txt");
 		Scanner leerFichero = new Scanner(buenaspelis);
 		
@@ -179,7 +217,7 @@ public class usuarios {
 				System.out.println(peliculas + puntuacion);
 			}
 		}
-			return peliculas3 ();
+			return peliculasmas3 ();
 	}//end peliculas3
-}//end class		
+}//end class	
 
