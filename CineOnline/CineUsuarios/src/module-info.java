@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author pauli
- *
- */
-module CineUsuarios {
-}
