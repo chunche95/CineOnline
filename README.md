@@ -41,7 +41,12 @@
  * 
  */
 </pre>
-<div><a href="https://github.com/chunche95/CineOnline/blob/main/Documentos/Cine%20Online%20(G0)/Memoria/Memoria%20Proyecto%20Cine%20Online.pdf">Visualizar memoria del proyecto.</a>
+<div>
+<pre>
+        <button>
+        <a href="https://github.com/chunche95/CineOnline/blob/main/Documentos/Cine%20Online%20(G0)/Memoria/Memoria%20Proyecto%20Cine%20Online.pdf">Visualizar memoria del proyecto.</a>
+        </button>
+</pre>
 </div>
 <p>
     Trabajo de Fundamentos de programación de la UCLM. Cine Online en java. <br>
