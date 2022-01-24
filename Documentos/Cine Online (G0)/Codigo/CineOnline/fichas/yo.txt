@@ -1,0 +1,3 @@
+peli 1 - 4
+peli 2 - 2
+peli 3 - 1

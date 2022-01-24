@@ -1,0 +1,2 @@
+crit1
+crit2
