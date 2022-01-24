@@ -1,0 +1,91 @@
+/*
+ * Clase que realiza el calculo de la media de las peliculas
+ */
+package net.humancomputing.cineonline;
+
+import java.io.*;
+import java.util.Scanner;
+
+/**
+ * @version 0.2
+ * @author Paulino Esteban Bermúdez Rodríguez | humancomputing.net
+ */
+public class Calculos {
+    /**
+    * Para desarrollar estos metodos:
+    * - Leere la ficha del critico
+    * - Obtendre el ultimo caracter de la linea leida - la nota
+    * - Asociare el titulo de cartelera al caracter obtenido    
+    * - Calculamos su media y usamos en c/u de los metodos.
+    * */
+    
+    public static void notaMedia() {
+        /**
+        * Declaracion de las variables globales.
+        */
+
+        int puntuacion[] = null; // Array que almacena las notas de las peliculas.
+        int media = 0;
+        String titluo[] = null; // Array qye almacena los titulos de las peliculas.
+        
+        try {
+            /**
+            * Declaracion de las variables del try.
+            */
+            int contadorLineas = 0; // Peliculas dadas de alta en el sistema. Ej: 2            
+            // Listamos los ficheros existentes en el directorio de las fichas de criticos            
+            File fichaN = new File("fichas/");
+            String[] nombreCriticos = fichaN.list(); // Almacenamos el resultado en un array.
+            if (nombreCriticos == null || nombreCriticos.length == 0) {
+                System.out.println("No hay elementos dentro de la carpeta actual.");
+            } else {
+                for (int i = 0; i < nombreCriticos.length; i++) {
+                    // Comprobamos que archivo encontro el equipo.
+                    System.out.println("Fichero: "+ nombreCriticos[i] + " es de tipo: " + ((Object)nombreCriticos[i].getClass().getSimpleName()));
+                    // Leemos el fichero del critico de turno
+                    // Declaracion de las variables de lectura.
+                    String nombreF = nombreCriticos[i];
+                    Scanner lecturaFicha;
+                    File fichaCriticoI;
+                    String nombreFicha;
+                    // Fichero a leer.
+                    nombreFicha = nombreF; // Leemos la ficha txt con las puntuaciones de las peliculas evaluadas por el critico de cine.
+                    fichaCriticoI = new File(nombreFicha);
+                    lecturaFicha = new Scanner(fichaCriticoI); // Indicamos que fichero txt debe leer
+                    while(lecturaFicha.hasNextLine()){
+                        // Cuantas lineas tiene el fichero, nos ayudara para calcular la media
+                        ++contadorLineas; 
+                        // Leemos la linea del fichero de texto
+                        String critica = lecturaFicha.nextLine();
+                        // Aplicamos un filtro de division de la linea, en este caso '-'.
+                        String[] parts= critica.split("-");
+                        // Renombramos las partes. Titular y numero (puntuacion de la pelicula).
+                        String titular = parts[0];
+                        String numero = parts[1];
+                        int puntos = Integer.parseInt(numero); // Casting de String a Integer. 
+                        // Creamos un sumatorio de las notas del fichero
+                        for (int j = 0; j <= contadorLineas; j++) {
+                            puntuacion[j] = puntos;
+                            media = media + puntuacion[j];
+                        }
+                        System.out.println("La media para " + nombreFicha +  " es: " + media);
+                    }
+                    lecturaFicha.close();
+                } // Cierre del bucle for - Lectura de ficheros txt de los criticos con sus notas
+            }
+    
+        } catch (FileNotFoundException e1){
+            System.out.println("");
+            System.out.println("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''");
+            System.out.println(" Fichero no encontrado...Verifique sus datos y vuelva a ejecutarlo con otros datos diferentes.");
+            System.out.println("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''");
+            System.out.println(" Error ocurrido: " + e1);
+            System.out.println("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''");
+        } catch (Exception e2){
+            System.out.println("");
+            System.out.println("Error:");
+            System.out.println(e2);
+        }
+    }
+     
+}
