@@ -44,14 +44,14 @@
 <div><a href="https://github.com/chunche95/CineOnline/blob/main/Documentos/Cine%20Online%20(G0)/Memoria/Memoria%20Proyecto%20Cine%20Online.pdf">Visualizar memoria del proyecto.</a>
 </div>
 <p>
-    Trabajo de Fundamentos de programación de la UCLM. Cine Online en java.
+    Trabajo de Fundamentos de programación de la UCLM. Cine Online en java. <br>
     <code>
-    @Authores: 
+    <i>@Authores:</i> <br>
         Miguel Angel Barreiro C., <br>
         Kevin Alfonso Gomez S., <br>
         Efraín Enrique Ramírez M, <br>
         Paulino Esteban Bermúdez R. <br>
-    @Version: 0.2
+    <i>@Version:</i> 0.2
     </code>
 </p>
 </p>
