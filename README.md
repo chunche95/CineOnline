@@ -56,6 +56,9 @@
         Kevin Alfonso Gomez S., <br>
         Efraín Enrique Ramírez M, <br>
         Paulino Esteban Bermúdez R. <br>
+    </i>
+    </code>
+    <code>
     <i>@Version:</i> 0.2
     </code>
 </p>
